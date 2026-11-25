@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dapur Senja — Warung Rush</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #241811;
+    height: 100%;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    color: #fff6e0;
+  }
+  #wrap {
+    width: min(1280px, 100vw);
+  }
+  canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #7a4a35;
+    cursor: pointer;
+  }
+  #hint {
+    text-align: center;
+    font-size: 13px;
+    color: #d8c9a8;
+    padding: 8px 12px 0;
+  }
+  #hint b { color: #f2c14e; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="1280" height="720"></canvas>
+  <div id="hint">Dapur Senja — Warung Rush · klik bahan atau tekan <b>1–8</b> · <b>Spasi</b> masak · <b>Enter</b> sajikan · <b>B</b> buang · <b>P</b> jeda · <b>M</b> suara</div>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
