@@ -4,7 +4,7 @@
 // wok and the plates are drawn from shapes every frame. Nothing here
 // mutates the game state; it only reads it.
 
-import { COLORS, VIEW, HEARTS, INGREDIENTS, DISHES, ingredientById, dishById } from './config.js';
+import { COLORS, VIEW, HEARTS, DAY_TIMER_WARN, COOK_SECONDS, SERVE_WINDOW, INGREDIENTS, DISHES, ingredientById, dishById } from './config.js';
 import { wokDish, wokRuined, matchingOrder, describeWok } from './world.js';
 
 // A finished dish drawn on the serving plate: a small mound of the dish's
@@ -293,7 +293,7 @@ function drawHud(ctx, game) {
   ctx.fill();
   const mins = Math.floor(game.timeLeft / 60);
   const secs = Math.floor(game.timeLeft % 60);
-  text(ctx, `${mins}:${String(secs).padStart(2, '0')}`, 1102, 62, 30, game.timeLeft < 20 ? '#ff8a7a' : COLORS.cream);
+  text(ctx, `${mins}:${String(secs).padStart(2, '0')}`, 1102, 62, 30, game.timeLeft < DAY_TIMER_WARN ? '#ff8a7a' : COLORS.cream);
   text(ctx, 'SKOR', 978, 52, 12, '#d8c9a8', 'left');
   text(ctx, String(game.score), 978, 78, 24, COLORS.cream, 'left');
   text(ctx, 'Rp' + game.coins.toLocaleString('id-ID'), 978, 108, 15, COLORS.gold, 'left');
@@ -409,7 +409,7 @@ function drawWokStation(ctx, game, t) {
   }[game.wokState];
   text(ctx, stateText, cx, cy - 42, 18, game.wokState === 'ready' ? COLORS.gold : game.wokState === 'burnt' || game.wokState === 'ruined' ? '#ff8a7a' : COLORS.cream, 'center', '800');
   if (game.wokState === 'cooking') {
-    const frac = 1 - game.cookTimer / 2.4;
+    const frac = 1 - game.cookTimer / COOK_SECONDS;
     ctx.fillStyle = 'rgba(0,0,0,0.45)';
     rr(ctx, cx - 90, cy - 30, 180, 10, 5);
     ctx.fill();
@@ -417,7 +417,7 @@ function drawWokStation(ctx, game, t) {
     rr(ctx, cx - 90, cy - 30, 180 * Math.max(0, frac), 10, 5);
     ctx.fill();
   } else if (game.wokState === 'ready') {
-    const frac = Math.max(0, game.serveTimer / 4);
+    const frac = Math.max(0, game.serveTimer / SERVE_WINDOW);
     ctx.fillStyle = 'rgba(0,0,0,0.45)';
     rr(ctx, cx - 90, cy - 30, 180, 10, 5);
     ctx.fill();

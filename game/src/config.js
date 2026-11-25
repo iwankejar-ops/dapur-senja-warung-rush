@@ -22,6 +22,9 @@ export const MAX_ORDERS = 3;
 export const COOK_SECONDS = 2.4;
 export const SERVE_WINDOW = 4.0;
 
+// Under this many seconds the day timer turns red.
+export const DAY_TIMER_WARN = 20;
+
 // Lives: an expired order or a burnt dish thrown away costs one heart.
 export const HEARTS = 3;
 

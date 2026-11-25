@@ -90,6 +90,11 @@ export const sfx = {
   click() {
     tone(700, 0.05, 'square', 0.05);
   },
+  // A dull thud when a ruined or burnt dish hits the bin.
+  trash() {
+    noise(0.12, 0.09, 300);
+    tone(140, 0.12, 'sine', 0.08, 0, 90);
+  },
   // Gentle chime when a new order appears on the board.
   order() {
     tone(1046, 0.12, 'sine', 0.07);

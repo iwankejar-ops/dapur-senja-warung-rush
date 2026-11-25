@@ -72,7 +72,7 @@ export function attachInput(canvas, getGame, hooks) {
       return;
     }
     if (inside(x, y, buttonRect('trash'))) {
-      if (trashWok(game)) sfx.click();
+      if (trashWok(game)) sfx.trash();
       return;
     }
   });
@@ -115,7 +115,7 @@ export function attachInput(canvas, getGame, hooks) {
       if (serveDish(game)) sfx.serve();
       else sfx.bad();
     } else if (key === 'b') {
-      if (trashWok(game)) sfx.click();
+      if (trashWok(game)) sfx.trash();
     }
   });
 }

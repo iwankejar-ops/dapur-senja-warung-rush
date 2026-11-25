@@ -34,7 +34,11 @@ Five dishes on the menu: Nasi Goreng, Mie Ayam, Sate Pedas, Telur Dadar and Nasi
 - `game/src/input.js` — mouse and keyboard.
 - `game/src/shots.js` — `?shot=start|play|serve|end` stages fixed states for screenshots.
 - `main.ts` — the make.fun hand-in program (Node 22): copies `game/` and `screenshots/` to `/output` and writes `dossier.json`.
-- `screenshots/` — real renders of the game's own code.
+- `screenshots/` — real renders of the game's own code: `01-play.png` (the cover: a dish mid-assembly), `02-start.png` (title screen), `03-serve.png` (a finished dish ready to serve), `04-end.png` (end-of-day summary).
+
+## Screenshots
+
+The four shots are staged with `?shot=start|play|serve|end` (see `game/src/shots.js`) and captured from the running game in a desktop browser — no mock-ups.
 
 ---
 

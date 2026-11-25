@@ -51,6 +51,8 @@ export function stagedGame(shot) {
     game.wok = ['nasi', 'telur', 'bawang', 'kecap'];
     game.wokState = 'ready';
     game.serveTimer = 3.1;
+    game.flash = 'Nasi Goreng matang — sajikan!';
+    game.flashTimer = 3.0;
     game.score = 620;
     game.coins = 41000;
     game.combo = 3;

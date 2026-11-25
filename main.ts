@@ -23,14 +23,14 @@ if (existsSync(join(here, 'screenshots'))) {
 
 // The scorer's caps for this bounty: at most 4 screenshots, each at most
 // 256 KiB; game/ at most 993 files and 48 MiB; paths at most 1000 bytes;
-// the dossier text holds at most 160 KiB of source.
-writeFileSync(
-  join(out, 'dossier.json'),
-  buildDossier(out, {
-    text_max_bytes: 163840,
-    screenshots: { max: 4, max_bytes: 262144 },
-    game_max_files: 993,
-    game_max_bytes: 50331648,
-    game_path_max_bytes: 1000,
-  }),
-);
+// the dossier text holds at most 160 KiB of source. A line on stdout names
+// the output so a local run shows where the hand-in landed.
+const dossier = buildDossier(out, {
+  text_max_bytes: 163840,
+  screenshots: { max: 4, max_bytes: 262144 },
+  game_max_files: 993,
+  game_max_bytes: 50331648,
+  game_path_max_bytes: 1000,
+});
+writeFileSync(join(out, 'dossier.json'), dossier);
+console.log(`Dapur Senja handed in: ${out} (dossier.json, ${dossier.length} bytes)`);
